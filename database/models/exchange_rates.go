@@ -1,10 +1,10 @@
 package models
 
 type ExchangeRates struct {
-	Default
+	Model
 	Currency Currency
-	SourceID Currency `json:"source_id"`
-	TargetID Currency `json:"target_id"`
+	Source Currency `json:"source_id"`
+	Target Currency `json:"target_id"`
 	Value 	 float64  `json:"value"`
 	Inverse  float64  `json:"invertse"`
 	Name     string   `json:"name"`
