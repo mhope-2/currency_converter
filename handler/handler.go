@@ -26,10 +26,8 @@ func New(DB *gorm.DB) *Handler {
 func (h *Handler) Register(v1 *gin.RouterGroup){
 
 	users := v1.Group("/users")
-	users.GET("/", h.ListUsers)
-	users.GET("/:id", h.ViewUser)
-	users.POST("/signup", h.SignupUser)
-	users.POST("/login", h.LoginUser)
+	users.GET("/currencies", h.ListCurrencies)
+	users.GET("/exchange/rates", h.ListExchangeRates)
 }
 
 

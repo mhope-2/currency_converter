@@ -1,14 +1,13 @@
 package handler
 
 import (
-	"fmt"
-	"log"
+	// "fmt"
+	// "log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 	"github.com/mhope-2/currency_converter.git/database/models"
-	"github.com/mhope-2/go_book_api/database/models"
-	"gorm.io/gorm"
+	// "gorm.io/gorm"
 )
 
 
@@ -37,18 +36,18 @@ func (h *Handler) ListCurrencies(c *gin.Context) {
 
 
 func (h *Handler) ListExchangeRates(c *gin.Context) {
-	var currencies []models.Currency
+	var exchangeRates []models.ExchangeRates
 
-	if err := h.DB.Find(&currencies).Error; err != nil {
+	if err := h.DB.Find(&exchangeRates).Error; err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
-			"message": "failed to retrieve currencies",
+			"message": "failed to retrieve exchange rates",
 		})
 		return
 	}
 
 	c.JSON(http.StatusOK, gin.H{
 		"response":   "success",
-		"currencies": currencies,
+		"exchange_rates": exchangeRates,
 	})
 }
 
