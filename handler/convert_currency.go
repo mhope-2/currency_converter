@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/mhope-2/currency_converter.git/database/models"
+	"github.com/mhope-2/currency_converter/database/models"
 	// "gorm.io/gorm"
 )
 
@@ -17,7 +17,7 @@ type ConvertCurrencyRequest struct {
 
 }
 
-
+// List all currencies
 func (h *Handler) ListCurrencies(c *gin.Context) {
 	var currencies []models.Currency
 
@@ -34,7 +34,7 @@ func (h *Handler) ListCurrencies(c *gin.Context) {
 	})
 }
 
-
+// List all exchange rates
 func (h *Handler) ListExchangeRates(c *gin.Context) {
 	var exchangeRates []models.ExchangeRates
 
@@ -51,3 +51,5 @@ func (h *Handler) ListExchangeRates(c *gin.Context) {
 	})
 }
 
+
+// convert currency

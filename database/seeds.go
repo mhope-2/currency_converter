@@ -11,9 +11,9 @@ import (
 	"gorm.io/gorm"
 )
 
-type SeedFn func(db *gorm.DB, path string)
+type SeedFunc func(db *gorm.DB, path string)
 
-func RunSeeds(db *gorm.DB, seeds []SeedFn) {
+func RunSeeds(db *gorm.DB, seeds []SeedFunc) {
 	path, err := os.Getwd()
 	if err != nil {
 		panic(err)
@@ -38,7 +38,7 @@ func SeedCurrencies (DB *gorm.DB, path string){
 	}
 
 	for i := 0; i < currencyList.Len(); i++ {	
-		currency_str := strings.ToLower(fmt.Sprintf("%s", currencyList.Item(i)))
+		currency_str := fmt.Sprintf("%s", currencyList.Item(i))
 		name := strings.Split(currency_str, "|")[0]
 		code := strings.Split(currency_str, "|")[1]
 		symbol := strings.Split(currency_str, "|")[2]
@@ -57,9 +57,6 @@ func SeedCurrencies (DB *gorm.DB, path string){
 	}
 
 }
-
-
-
 
 
 

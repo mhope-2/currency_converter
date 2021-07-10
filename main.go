@@ -1,7 +1,6 @@
 package main
 
 import (
-	"crypto/sha256"
 	"log"
 	"os"
 	"fmt"
@@ -52,8 +51,8 @@ func main() {
 		logger.Fatal("Failed to Setup Tables", err)
 	}
 
-	database.RunSeeds(db, []database.SeedFn{
-		database.SeedBooks,
+	database.RunSeeds(db, []database.SeedFunc{
+		database.SeedCurrencies,
 	})
 
 
