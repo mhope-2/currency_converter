@@ -1,0 +1,12 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /                         --> github.com/mhope-2/currency_converter/server.healthCheck (3 handlers)
+[GIN-debug] GET    /v1/currencies/           --> github.com/mhope-2/currency_converter/handler.(*Handler).ListCurrencies-fm (3 handlers)
+[GIN-debug] GET    /v1/exchange/rates/       --> github.com/mhope-2/currency_converter/handler.(*Handler).ListExchangeRates-fm (3 handlers)
+[GIN-debug] POST   /v1/convert/currency/     --> github.com/mhope-2/currency_converter/handler.(*Handler).ConvertCurrency-fm (3 handlers)
+[GIN-debug] redirecting request 307: /v1/convert/currency/ --> /v1/convert/currency/
+[GIN] 2021/07/11 - 23:46:45 | 200 |  101.799362ms |             ::1 | POST     "/v1/convert/currency/"

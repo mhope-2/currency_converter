@@ -5,6 +5,8 @@ import (
 	"os"
 	"os/signal"
 	"log"
+	"fmt"
+	"io"
 
 	"github.com/gin-gonic/gin"
 )
@@ -29,10 +31,20 @@ func healthCheck(c *gin.Context){
 
 // new server
 func New() Server {
-	// binding.Validator = new(validator.DefaultValidator)
-	server := gin.Default()
-	server.GET("/", healthCheck)
-	return Server{server}
+
+	// write server logs to file
+	logfile, err := os.Create("logs/server.log")
+	if err != nil {
+		fmt.Println("Could not create log file")
+	}
+	gin.SetMode(gin.DebugMode)
+	gin.DefaultWriter = io.MultiWriter(logfile)
+
+	router := gin.Default()	
+
+	
+	router.GET("/", healthCheck)
+	return Server{router}
 }
 
 
