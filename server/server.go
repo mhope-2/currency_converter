@@ -9,22 +9,25 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// config struct
 type Config struct {
 	Port string
 	Debug bool
 }
 
-
+// server struct
 type Server struct {
 	*gin.Engine
 }
 
+// perform healthcheck
 func healthCheck(c *gin.Context){
 	c.JSON(http.StatusOK, gin.H{
 		"status": "OK",
 	})
 }
 
+// new server
 func New() Server {
 	// binding.Validator = new(validator.DefaultValidator)
 	server := gin.Default()
@@ -33,6 +36,7 @@ func New() Server {
 }
 
 
+// start server
 func Start(e *Server, cfg *Config) {
 
 	s := &http.Server{

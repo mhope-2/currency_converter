@@ -13,6 +13,7 @@ import (
 
 type SeedFunc func(db *gorm.DB, path string)
 
+// run seeds function
 func RunSeeds(db *gorm.DB, seeds []SeedFunc) {
 	path, err := os.Getwd()
 	if err != nil {
@@ -24,7 +25,7 @@ func RunSeeds(db *gorm.DB, seeds []SeedFunc) {
 	}
 }
 
-
+// seed currencies from database/currencies.yml file
 func SeedCurrencies (DB *gorm.DB, path string){
 	config, err := yaml.ReadFile(path + "/database/currencies.yml")
 

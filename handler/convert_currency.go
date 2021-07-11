@@ -1,7 +1,6 @@
 package handler
 
 import (
-	// "fmt"
 	"log"
 	"net/http"
 
@@ -10,7 +9,7 @@ import (
 	"gorm.io/gorm"
 )
 
-
+// currency conversion request struct
 type ConvertCurrencyRequest struct {
 	Source    string `json:"source_currency" validate:"required"`
 	Target    string `json:"target_currency" validate:"required"`
@@ -96,7 +95,7 @@ func (h *Handler) ConvertCurrency(c *gin.Context) {
 			"source_currency":  request.Source,
 			"target_currency": request.Target,
 			"amount": request.Amount,
-			"converted_value": convertedAmout,
+			"converted_amount": convertedAmout,
 		})
 
 	} else {

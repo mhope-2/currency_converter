@@ -8,7 +8,7 @@ import 	(
 	"gorm.io/gorm"
 )
 
-
+// config struct
 type Config struct {
 	Host     string
 	Port     string
@@ -19,13 +19,13 @@ type Config struct {
 	DBurl    string
 }
 
-
+// auto-migrate models
 func SetupDatabase(db *gorm.DB, models ...interface{}) error {
 	err := db.AutoMigrate(models...)
 	return err
 }
 
-
+// create new postgres database connections
 func New(config *Config) (*gorm.DB, error) {
 	var (
 		db *gorm.DB

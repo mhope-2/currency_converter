@@ -1,5 +1,6 @@
 package models
 
+// currency model struct
 type Currency struct {
 	Model
 	Name 	string `json:"name"`
