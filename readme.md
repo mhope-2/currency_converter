@@ -14,11 +14,11 @@ This is a simple currency converter written in Go.
 ### Build/Compile the application
 - change .env.sample to .env
 - fill .env file with right parameters
-- go build main.go
+- run go build main.go
 
 
 ### Run the application
-- ./main
+- run ./main
 
 
 ### Endpoint
