@@ -8,7 +8,7 @@ This is a simple currency converter written in Go.
 - ***github.com/joho/godotenv v1.3.0*** => to load environment variables from a .env file  
 - ***github.com/kylelemons/go-gypsy v1.0.0*** => was used to parse yml file to seed currencies model into the database   
 - ***gorm.io/driver/postgres v1.1.0*** => postgres db driver to allow for connection to postgres database   
-***gorm.io/gorm v1.21.11*** => allow for usage of a relational database  
+- ***gorm.io/gorm v1.21.11*** => allow for usage of a relational database  
 
 
 ### Build/Compile the application
