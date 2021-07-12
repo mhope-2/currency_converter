@@ -5,7 +5,6 @@ import (
 	"os"
 	"os/signal"
 	"log"
-	"fmt"
 	"io"
 
 	"github.com/gin-gonic/gin"
@@ -33,10 +32,11 @@ func healthCheck(c *gin.Context){
 func New() Server {
 
 	// write server logs to file
-	logfile, err := os.Create("logs/server.log")
+	logfile, err := os.OpenFile("logs/server.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
-		fmt.Println("Could not create log file")
+		log.Fatal(err)
 	}
+
 	gin.SetMode(gin.DebugMode)
 	gin.DefaultWriter = io.MultiWriter(logfile)
 
