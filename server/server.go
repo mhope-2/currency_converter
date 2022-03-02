@@ -1,11 +1,11 @@
 package server
 
 import (
+	"io"
+	"log"
 	"net/http"
 	"os"
 	"os/signal"
-	"log"
-	"io"
 
 	"github.com/gin-gonic/gin"
 )
@@ -74,4 +74,5 @@ func Start(e *Server, cfg *Config) {
 			log.Println("Unexpected Server Shutdown. err:", err)
 		}
 	}
+	
 }
