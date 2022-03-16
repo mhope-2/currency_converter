@@ -22,7 +22,7 @@ type Server struct {
 }
 
 // perform healthcheck
-func healthCheck(c *gin.Context){
+func HealthCheck(c *gin.Context){
 	c.JSON(http.StatusOK, gin.H{
 		"status": "OK",
 	})
@@ -43,7 +43,7 @@ func New() Server {
 	router := gin.Default()	
 
 	
-	router.GET("/", healthCheck)
+	router.GET("/", HealthCheck)
 	return Server{router}
 }
 

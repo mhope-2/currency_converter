@@ -1,9 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
-	"fmt"
 
 	"github.com/joho/godotenv"
 	"github.com/mhope-2/currency_converter/database"
@@ -21,10 +21,8 @@ func main() {
 
 	if err != nil {
 		logger.Fatal("Error loading .env file", err)
-	} 
-	log.Println("Loaded .env file")			
-	
-
+	}
+	log.Println("Loaded .env file")
 
 	db, err := postgres.New(&postgres.Config{
 		User:     os.Getenv("DB_USER"),
@@ -53,7 +51,6 @@ func main() {
 		database.SeedCurrencies,
 	})
 
-
 	if err != nil {
 		logger.Fatal(err)
 	}
@@ -64,13 +61,12 @@ func main() {
 
 	s := server.New()
 	h := handler.New(db)
-	
+
 	routes := s.Group("/v1")
 	h.Register(routes)
 
 	server.Start(&s, &server.Config{
 		Port: fmt.Sprintf(":%s", os.Getenv("PORT")),
 	})
-
 
 }
